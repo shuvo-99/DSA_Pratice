@@ -17,11 +17,11 @@ class Solution:
         l2=[]
         a1 = arr1.copy()
         a2 = arr2.copy()
-        arr1.sort()
-        arr2.sort()
+        arr1.sort(reverse=True)
+        arr2.sort(reverse=True)
         while True:
-            for i in range(len(arr2)-1,0,-1):
-                for j in range(len(arr1)-1,0,-1):
+            for i in range(len(arr2)):
+                for j in range(len(arr1)):
                     if arr2[i] >= arr1[j]:
                         if len(l)<5:
                           if arr2[i] not in l:
@@ -36,7 +36,7 @@ class Solution:
                         if len(l)<5:
                           if arr1[j] not in l:
                             l.append(arr1[j])
-                            break
+                            continue
                         else:
                             r = Solution.reslist(a1,a2,l,l2)
                             return r
@@ -55,4 +55,66 @@ if __name__ == '__main__':
         print()
         tc -= 1
 
-# } Driver Code Ends
+
+# Alternate soln:
+
+# from queue import PriorityQueue
+
+# class Solution:
+#     def maximizeArray(self,arr1, arr2, n):
+#         temp1 = arr1.copy()
+#         temp2 = arr2.copy()
+    
+#         # Sorting in descending order
+#         temp1.sort(reverse=True)
+#         temp2.sort(reverse=True)
+    
+#         i, j = 0, 0
+#         ust = set()
+#         count = 0
+    
+#         while i < n and j < n:
+#             if temp1[i] > temp2[j]:
+#                 if temp1[i] not in ust:
+#                     ust.add(temp1[i])
+#                     count += 1
+#                 i += 1
+#             else:
+#                 if temp2[j] not in ust:
+#                     ust.add(temp2[j])
+#                     count += 1
+#                 j += 1
+    
+#             if count == n:
+#                 break
+    
+#         if count != n:
+#             while j < n:
+#                 if temp2[j] not in ust:
+#                     ust.add(temp2[j])
+#                     count += 1
+#                 j += 1
+#                 if count == n:
+#                     break
+    
+#         if count != n:
+#             while i < n:
+#                 if temp1[i] not in ust:
+#                     ust.add(temp1[i])
+#                     count += 1
+#                 i += 1
+#                 if count == n:
+#                     break
+    
+#         res = []
+#         for num in arr2:
+#             if num in ust:
+#                 res.append(num)
+#                 ust.remove(num)
+    
+#         for num in arr1:
+#             if num in ust:
+#                 res.append(num)
+#                 ust.remove(num)
+    
+#         return res
