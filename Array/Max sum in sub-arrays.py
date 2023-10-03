@@ -1,22 +1,32 @@
 class Solution:
-    def pairWithMaxSum(self, arr, N):
-        add = 0    
-        for i in range(N):
-            l = []
-            l.append(arr[i])
-            for j in range(i+1,N):
-              l.append(arr[j])
-              new_min1 = min(l)
-              new_min1_idx = l.index(new_min1)
-              l.remove(new_min1)
-              new_min2 = min(l)
-              l.insert(new_min1_idx,new_min1)
+    # Time limit exceed error
+    
+    # def pairWithMaxSum(self, arr, N):
+    #     add = 0    
+    #     for i in range(N):
+    #         l = []
+    #         l.append(arr[i])
+    #         for j in range(i+1,N):
+    #           l.append(arr[j])
+    #           new_min1 = min(l)
+    #           new_min1_idx = l.index(new_min1)
+    #           l.remove(new_min1)
+    #           new_min2 = min(l)
+    #           l.insert(new_min1_idx,new_min1)
 
-              new_add = new_min1 + new_min2
+    #           new_add = new_min1 + new_min2
 
-              if new_add > add:
-                  add = new_add
-        return add          
+    #           if new_add > add:
+    #               add = new_add
+    #     return add 
+     
+     
+    # Alternate:
+    def pairWithMaxSum(self,arr, N):
+        max_sum = float('-inf')
+        for i in range(1, int(N)):
+            max_sum = max(max_sum, arr[i-1] + arr[i])
+        return max_sum      
 
 def main():
 
