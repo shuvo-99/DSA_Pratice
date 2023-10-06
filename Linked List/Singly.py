@@ -4,9 +4,10 @@ class Node:
     self.ref = None
 
 class LinkedList:
-  def __init__(self, node_ref=None):
-    self.head = node_ref
+  def __init__(self):
+    self.head = None
 
+  # traverse
   def printDteails(self):
     n = self.head
     
@@ -19,4 +20,4 @@ class LinkedList:
         n = n.ref
 
 ll1 = LinkedList()
-ll1.printDteails()
+ll1.printDteails() 
