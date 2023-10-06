@@ -15,9 +15,18 @@ class LinkedList:
       print('Linked List is Empty')
 
     else:
-      while n.ref != None:
+      while n != None:
         print(n.data)
         n = n.ref
 
+  # add at the begining
+  def addBegin(self,data):
+    new_node = Node(data)
+    new_node.ref = self.head
+    self.head = new_node
+
 ll1 = LinkedList()
+ll1.addBegin(10)
 ll1.printDteails() 
+ll1.addBegin(20)
+ll1.printDteails()
