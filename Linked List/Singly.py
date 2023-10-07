@@ -42,7 +42,7 @@ class LinkedList:
   # add inbetween node - after a node
   def addInbetween_After(self, data, x):
     n = self.head
-    while n!= None:              #Check LL is empty or node in present or not
+    while n!= None:              #Check LL is empty or node is present or not
       if x == n.data:
         break
       n = n.ref
@@ -51,9 +51,36 @@ class LinkedList:
       print('Node not present')
 
     else:
-      new_node = Node(30)        #create new node  
+      new_node = Node(data)      #create new node  
       new_node.ref = n.ref       #set its ref to next node
       n.ref = new_node           #set its prev node ref to its node
+
+  def addInbetween_Before(self, data, x):
+    if self.head == None:
+      print('LL in empty')
+      return
+    
+    # before 1st node
+    if self.head.data == x:
+      new_node = Node(data)       #create new node
+      new_node.ref = self.head    #set its ref to next node
+      self.head = new_node        #set its node as head
+      return
+    
+    # before rest nodes
+    n = self.head
+    while n.ref != None:          #Check node is present or not
+      if n.ref.data == x:         #if present break loop
+        break
+      n = n.ref
+
+    if n.ref == None:
+      print('Node not present')
+    else:
+      new_node = Node(data)      #create new node
+      new_node.ref = n.ref       #set its ref to next node
+      n.ref = new_node           #set its prev node ref to its node
+
 
 
 ll1 = LinkedList()
@@ -61,4 +88,6 @@ ll1.addBegin(10)
 ll1.addEnd(100)
 ll1.addBegin(20)
 ll1.addInbetween_After(30,10)
+ll1.addInbetween_Before(25,20)
+ll1.addInbetween_Before(40,100)
 ll1.printDteails()
