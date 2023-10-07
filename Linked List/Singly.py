@@ -82,9 +82,18 @@ class LinkedList:
       new_node.ref = n.ref       #set its ref to next node
       n.ref = new_node           #set its prev node ref to its node
 
+  # add node when LL is empty
+  def add_1st_node(self, data):
+    if self.head == None:
+      new_node = Node(data)
+      self.head = new_node
+    
+    else:
+      print('LL not empty')
 
 
 ll1 = LinkedList()
+ll1.add_1st_node(5)
 ll1.addBegin(10)
 ll1.addEnd(100)
 ll1.addBegin(20)
