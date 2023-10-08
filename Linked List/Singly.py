@@ -91,6 +91,14 @@ class LinkedList:
     else:
       print('LL not empty')
 
+  # delete first node
+  def delete_begin(self):
+    if self.head == None:
+      print('LL is empty')
+    
+    else:
+      self.head = self.head.ref    # set head to 2nd node
+
 
 ll1 = LinkedList()
 ll1.add_1st_node(5)
@@ -100,4 +108,7 @@ ll1.addBegin(20)
 ll1.addInbetween_After(30,10)
 ll1.addInbetween_Before(25,20)
 ll1.addInbetween_Before(40,100)
+ll1.printDteails()
+print('------------')
+ll1.delete_begin()
 ll1.printDteails()
