@@ -111,9 +111,9 @@ class LinkedList:
 
     else:
       n = self.head
-      while n.ref.ref != None:
+      while n.ref.ref != None:    # iterate to find 2nd last node
         n = n.ref
-      n.ref = None 
+      n.ref = None                # set ref of 2nd last node to None 
 
 
 
