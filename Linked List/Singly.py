@@ -16,8 +16,9 @@ class LinkedList:
 
     else:
       while n != None:
-        print(n.data)
+        print(n.data,'-->',end=' ')
         n = n.ref
+      print()
 
   # add at the begining
   def addBegin(self,data):
@@ -98,6 +99,22 @@ class LinkedList:
     
     else:
       self.head = self.head.ref    # set head to 2nd node
+  
+  # delete last node
+  def delete_last(self):
+    if self.head == None:
+      print('LL is empty')
+    
+    # if LL has only one node
+    elif self.head.ref == None:
+      self.head = None  
+
+    else:
+      n = self.head
+      while n.ref.ref != None:
+        n = n.ref
+      n.ref = None 
+
 
 
 ll1 = LinkedList()
@@ -109,6 +126,7 @@ ll1.addInbetween_After(30,10)
 ll1.addInbetween_Before(25,20)
 ll1.addInbetween_Before(40,100)
 ll1.printDteails()
-print('------------')
 ll1.delete_begin()
+ll1.printDteails()
+ll1.delete_last()
 ll1.printDteails()
