@@ -114,8 +114,32 @@ class LinkedList:
       while n.ref.ref != None:    # iterate to find 2nd last node
         n = n.ref
       n.ref = None                # set ref of 2nd last node to None 
+  
+  # delete any node from the LL
+  def delete_anyNode(self,x):
+    if self.head == None:
+      print('LL is empty')
+      return
+    
+    # if deleted node is the 1st node
+    elif self.head.data == x:
+      self.head = self.head.ref      # set head to 2nd node  
+      return
+    
+    else:
+      n = self.head
+      while n.ref != None:           # iterate to find prev node of deleted node
+        if n.ref.data == x:          
+          break
+        n = n.ref
 
+      if n.ref == None:
+        print('Node not present')
 
+      else:
+        n.ref = n.ref.ref            # set ref of prev node of deleted node to next node of deleted node 
+
+  
 
 ll1 = LinkedList()
 ll1.add_1st_node(5)
@@ -129,4 +153,6 @@ ll1.printDteails()
 ll1.delete_begin()
 ll1.printDteails()
 ll1.delete_last()
+ll1.printDteails()
+ll1.delete_anyNode(5)
 ll1.printDteails()
