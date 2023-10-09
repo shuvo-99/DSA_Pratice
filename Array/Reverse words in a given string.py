@@ -5,12 +5,7 @@ class Solution:
         s = S.split('.')
         s = s[-1::-1]
         res = '.'.join(s)
-        return res
-            
-            
-
-
-
+        return res            
 
 if __name__ == '__main__':
     t = 1
