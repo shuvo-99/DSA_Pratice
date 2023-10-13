@@ -36,6 +36,16 @@ class doublyLinkedList:
         print(n.data,'-->',end=' ')
         n = n.prev_ref
 
+  # Insert the 1st node
+  def add1stNode(self, data):
+    if self.head == None:
+      new_node = Node(data)
+      self.head = new_node
+
+    else:
+      print('Doubly LL is empty')
+
+
 ll1 = doublyLinkedList()
 
 
