@@ -21,7 +21,7 @@ class doublyLinkedList:
         n = n.next_ref
   
   # Backward traversal
-  def printDteails(self):
+  def printDteails_reverse(self):
     n = self.head
 
     if n == None:
