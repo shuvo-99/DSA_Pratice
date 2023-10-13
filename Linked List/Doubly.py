@@ -19,6 +19,7 @@ class doublyLinkedList:
       while n is not None:
         print(n.data,'-->',end=' ')
         n = n.next_ref
+      print()
   
   # Backward traversal
   def printDteails_reverse(self):
@@ -29,7 +30,7 @@ class doublyLinkedList:
 
     else:
 
-      while n.nref is not None:       # Goto last node
+      while n.next_ref is not None:       # Goto last node
         n = n.next_ref
 
       while n is not None:
@@ -44,11 +45,47 @@ class doublyLinkedList:
 
     else:
       print('Doubly LL is empty')
+  
+  # Insert at the begining
+  def addBegin(self, data):
+    new_node = Node(data)
+
+    if self.head == None:                 # Check LL is empty or not
+      self.head = new_node
+
+    else:
+      new_node.next_ref = self.head
+      self.head.prev_ref = new_node
+      self.head = new_node
+
+  # Insert at the end
+  def addEnd(self,data):
+    new_node = Node(data)
+
+    if self.head == None:                 # Check LL is empty or not
+      self.head = new_node
+
+    else:
+      n =self.head
+      while n.next_ref != None:    # Goto last node
+        n = n.next_ref
+      
+      n.next_ref = new_node
+      new_node.prev_ref = n
 
 
-ll1 = doublyLinkedList()
-
-
+dll1 = doublyLinkedList()
+dll1.add1stNode(20)
+dll1.printDteails()
+dll1.addBegin(10)
+dll1.printDteails()
+dll1.addBegin(5)
+dll1.printDteails()
+dll1.addEnd(100)
+dll1.printDteails()
+dll1.addEnd(200)
+dll1.printDteails()
+dll1.printDteails_reverse()
     
 
     
