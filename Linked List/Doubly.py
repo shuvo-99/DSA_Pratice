@@ -73,6 +73,59 @@ class doublyLinkedList:
       n.next_ref = new_node
       new_node.prev_ref = n
 
+  # Insert a node after a given node
+  def addInbetween_After(self, data, x):
+    if self.head == None:
+      print('Doubly LL is empty')
+    
+    else:
+      
+      n = self.head
+      while n is not None:                  # Goto given node
+        if x == n.data:
+          break
+        n = n.next_ref
+      
+      if n == None:
+        print('Node not present')
+      
+      else:
+        new_node = Node(data)
+        new_node.next_ref = n.next_ref
+        new_node.prev_ref = n
+
+        if n.next_ref != None:               # if given node is not the last node
+          n.next_ref.prev_ref = new_node
+        
+        n.next_ref = new_node
+  
+  # Insert a node before a given node
+  def addInbetween_Before(self, data, x):
+    if self.head == None:
+      print('Doubly LL is empty')
+    
+    else:
+      
+      n = self.head
+      while n is not None:                  # Goto given node
+        if x == n.data:
+          break
+        n = n.next_ref
+      
+      if n == None:
+        print('Node not present')
+      
+      else:
+        new_node = Node(data)
+        new_node.next_ref = n
+        new_node.prev_ref = n.prev_ref
+
+        if n.prev_ref != None:               # if given node is not the first node
+          n.prev_ref.next_ref = new_node
+        else:
+          self.head = None
+        
+        n.prev_ref = new_node
 
 dll1 = doublyLinkedList()
 dll1.add1stNode(20)
@@ -84,6 +137,10 @@ dll1.printDteails()
 dll1.addEnd(100)
 dll1.printDteails()
 dll1.addEnd(200)
+dll1.printDteails()
+dll1.addInbetween_After(30,20)
+dll1.printDteails()
+dll1.addInbetween_Before(40,100)
 dll1.printDteails()
 dll1.printDteails_reverse()
     
