@@ -36,6 +36,7 @@ class doublyLinkedList:
       while n is not None:
         print(n.data,'-->',end=' ')
         n = n.prev_ref
+      print()
 
   # Insert the 1st node
   def add1stNode(self, data):
@@ -127,6 +128,37 @@ class doublyLinkedList:
         
         n.prev_ref = new_node
 
+  def delete_1stNode(self):
+    if self.head == None:                            # Check Dllis empty or not
+      print('Doubly LL is empty')
+      return
+    
+    elif self.head.next_ref == None:                 # Check Dll has only one node or not
+      self.head = None
+      print('DLL is empty after deleteing 1st nide')
+    
+    else:
+      self.head = self.head.next_ref
+      self.head.prev_ref = None
+  
+  def delete_EndNode(self):
+    if self.head == None:                            # Check Dllis empty or not
+      print('Doubly LL is empty')
+      return
+    
+    elif self.head.next_ref == None:                 # Check Dll has only one node or not
+      self.head = None
+      print('DLL is empty after deleteing 1st nide')
+    
+    else:
+      n = self.head
+      while n.next_ref != None:
+        n = n.next_ref
+      n.prev_ref.next_ref = None
+
+
+
+
 dll1 = doublyLinkedList()
 dll1.add1stNode(20)
 dll1.printDteails()
@@ -143,6 +175,9 @@ dll1.printDteails()
 dll1.addInbetween_Before(40,100)
 dll1.printDteails()
 dll1.printDteails_reverse()
-    
+dll1.delete_1stNode()
+dll1.printDteails()
+dll1.delete_EndNode()
+dll1.printDteails()
 
     
