@@ -129,7 +129,7 @@ class doublyLinkedList:
         n.prev_ref = new_node
 
   def delete_1stNode(self):
-    if self.head == None:                            # Check Dllis empty or not
+    if self.head == None:                            # Check Dll is empty or not
       print('Doubly LL is empty')
       return
     
@@ -142,19 +142,63 @@ class doublyLinkedList:
       self.head.prev_ref = None
   
   def delete_EndNode(self):
-    if self.head == None:                            # Check Dllis empty or not
+    if self.head == None:                            # Check Dll is empty or not
       print('Doubly LL is empty')
       return
     
     elif self.head.next_ref == None:                 # Check Dll has only one node or not
       self.head = None
-      print('DLL is empty after deleteing 1st nide')
+      print('DLL is empty after deleteing 1st node')
     
     else:
       n = self.head
       while n.next_ref != None:
         n = n.next_ref
       n.prev_ref.next_ref = None
+
+  def delete_byValue(self, x):
+    if self.head == None:                            # Check Dll is empty or not
+      print('Doubly LL is empty')
+      return
+    
+    elif self.head.next_ref == None:                 # Check if Dll has only one node 
+      if x == self.head.data:                        # Check if it is the deleted node
+        self.head = None
+      else:
+        print('Node not present')
+      return
+    
+    elif x == self.head.data:                        # Check if it is the 1st node
+        self.head = self.head.next_ref
+        self.head.prev_ref = None
+        return
+    
+    else:
+
+      n = self.head
+      while n.next_ref != None:                      # Iterate for looking the middle node
+        if x == n.data:
+          break
+        n = n.next_ref
+      
+      if n.next_ref != None:                         # Check if it is middle node
+        n.next_ref.prev_ref = n.prev_ref 
+        n.prev_ref.next_ref = n.next_ref
+
+      else:                                          # If it is last node
+        if x == n.data:
+          n.prev_ref.next_ref = None
+        else:
+          print('Node not present')
+
+
+
+    
+
+
+    
+
+
 
 
 
@@ -179,5 +223,10 @@ dll1.delete_1stNode()
 dll1.printDteails()
 dll1.delete_EndNode()
 dll1.printDteails()
-
+dll1.delete_byValue(100)
+dll1.printDteails()
+dll1.delete_byValue(30)
+dll1.printDteails()
+dll1.delete_byValue(10)
+dll1.printDteails()
     
