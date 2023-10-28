@@ -46,6 +46,23 @@ class Solution:
               break
       print(prefix)
       return prefix
+    
+#-------- OPTIUM SOLUTION --------------
+
+class Solution:
+  def longestCommonPrefix(self, strs):
+    if not strs:
+      return ''
+
+    for i in range(len(strs[0])):
+      for j in range(1, len(strs)):
+        if i == len(strs[j]) or strs[j][i] != strs[0][i]:
+          print(strs[0][:i])
+          return strs[0][:i]
+    print(strs[0])
+    return strs[0]
+
+
           
 
 obj = Solution()
@@ -53,3 +70,9 @@ obj.longestCommonPrefix(["abc"])
 obj.longestCommonPrefix(["abab","aba",""])
 obj.longestCommonPrefix(["acc","aaa","aaba"])
 obj.longestCommonPrefix(["ac","ac","a","a"])
+
+
+
+
+          
+
