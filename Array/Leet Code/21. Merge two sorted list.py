@@ -69,9 +69,6 @@ class Solution:
         n = head
         while n != None:
           print(n.val,'-->', end=' ')
-          # if n.next_ref == None:
-          #   n = n.next_ref
-          # else:
           n = n.next
         print()
 
