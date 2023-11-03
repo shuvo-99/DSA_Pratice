@@ -15,5 +15,7 @@ class Solution:
       
     return False
 
+# Create a circular linked list
+# Then pass its head as argument in the method
 obj = Solution()
 obj.hasCycle(head)               # As input, head of a circular linekd list will be given
