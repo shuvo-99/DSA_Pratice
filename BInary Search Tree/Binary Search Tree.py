@@ -29,10 +29,28 @@ class BST:
         else:
           self.right_child.insertInBST(data)   # if root's right cild is not empty, then repeat the process and now new root will be the previous root's right cild
 
+  def search(self, data):
+    if self.key == data:
+      print('node found')
+      
+    elif data < self.key:
+      if self.left_child:
+        self.left_child.search(data)
+      else:
+        print('Node not found')
+
+    else:
+      if self.right_child:
+        self.right_child.search(data)
+      else:
+        print('Node not found')    
     
 
 root = BST(10)
-root.insertInBST(20)
+lst = [5,15,4,20,3,21]
+for i in lst:
+  root.insertInBST(i)
 print(root.key)
 print(root.left_child)
 print(root.right_child)
+root.search(30)
