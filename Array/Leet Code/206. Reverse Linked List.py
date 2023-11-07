@@ -1,3 +1,10 @@
+# ------------------------------------------
+# Solving using three pointers curr, prev, and next 
+# ------------------------------------------
+
+
+
+
 class Node:
   def __init__(self, val):
     self.val = val
