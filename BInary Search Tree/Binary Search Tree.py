@@ -45,6 +45,27 @@ class BST:
       else:
         print('Node not found')    
     
+  def pre_order(self):
+    print(self.key,'-->',end=' ')
+    if self.left_child:
+      self.left_child.pre_order()
+    if self.right_child:
+      self.right_child.pre_order()
+    
+
+  def in_order(self):
+    if self.left_child:
+      self.left_child.in_order()
+    print(self.key,'-->',end=' ')
+    if self.right_child:
+      self.right_child.in_order()
+  
+  def post_order(self):
+    if self.left_child:
+      self.left_child.post_order()
+    if self.right_child:
+      self.right_child.post_order()
+    print(self.key,'-->',end=' ')
 
 root = BST(10)
 lst = [5,15,4,20,3,21]
@@ -54,3 +75,11 @@ print(root.key)
 print(root.left_child)
 print(root.right_child)
 root.search(30)
+print('===== Pre-Order ====')
+root.pre_order()
+print()
+print('===== In-Order ====')
+root.in_order()
+print()
+print('===== Post-Order ====')
+root.post_order()
