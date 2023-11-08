@@ -67,6 +67,43 @@ class BST:
       self.right_child.post_order()
     print(self.key,'-->',end=' ')
 
+  def delete(self, data):
+    if self.key == None:
+      print('Tree is empty')
+
+    else:
+      if data < self.key:
+        if self.left_child:
+          self.left_child = self.left_child.delete(data)
+        else:
+          print(' Node not present')
+      
+      elif data > self.key:
+        if self.right_child:
+          self.right_child = self.right_child.delete(data)
+        else:
+          print(' Node not present')
+
+      else:
+        if self.left_child == None:        # If Deleted Node has 0 or 1 child
+          temp = self.right_child          #
+          self = None                      #
+          return temp                      #
+        
+        if self.right_child == None:       # If Deleted Node has 0 or 1 child
+          temp = self.left_child           #
+          self = None                      #
+          return temp                      #
+        
+        node = self.left_child             # If Deleted Node has 2 child
+        while node.left_child:
+          node = node.left_child
+        self.key = node.key
+        self.right_child = self.right_child.delete(node.key)
+      return self
+        
+
+
 root = BST(10)
 lst = [5,15,4,20,3,21]
 for i in lst:
@@ -83,3 +120,8 @@ root.in_order()
 print()
 print('===== Post-Order ====')
 root.post_order()
+print()
+root.delete(3)
+print('===== Pre-Order ====')
+root.pre_order()
+print()
