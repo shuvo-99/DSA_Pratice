@@ -107,7 +107,7 @@ class BST:
           self = None                           #  
           return temp                           #
         
-        node = self.left_child                  # If Deleted Node has 2 child
+        node = self.right_child                 # If Deleted Node has 2 child
         while node.left_child:
           node = node.left_child
         self.key = node.key
