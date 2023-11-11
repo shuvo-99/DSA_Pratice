@@ -114,6 +114,18 @@ class BST:
         self.right_child = self.right_child.delete(node.key, curr)
       return self
         
+  def min_node(self):
+    current = self
+    while current.left_child != None:
+      current = current.left_child
+    print("Node with smallest key is =", current.key)
+  
+  def max_node(self):
+    current = self
+    while current.right_child != None:
+      current = current.right_child
+    print("Node with smallest key is =", current.key)
+    
 def count(node):                                              # Find the no. of nodes in the tree
   if node == None:
     return 0
@@ -144,6 +156,9 @@ print()
 print('===== Post-Order ====')
 root.post_order()
 print()
+
+root.min_node()
+root.max_node()
 
 if count(root) > 1:
   root.delete(10, root.key)
