@@ -12,7 +12,7 @@ def add_Node(v):
       temp.append(0)
     graph.append(temp)
 
-# for undirected and unweighted
+# For undirected and unweighted
 def add_edge(v1, v2):
   if v1 not in nodes:
     print(v1, 'is not present in the graph')
@@ -24,7 +24,7 @@ def add_edge(v1, v2):
     graph[index1][index2] = 1    
     graph[index2][index1] = 1    
 
-# for undirected and weighted
+# For undirected and weighted
 def add_edge(v1, v2, cost):
   if v1 not in nodes:
     print(v1, 'is not present in the graph')
@@ -35,6 +35,28 @@ def add_edge(v1, v2, cost):
     index2 = nodes.index(v2)
     graph[index1][index2] = cost    
     graph[index2][index1] = cost    
+
+# For directed and unweighted
+def add_edge(v1, v2):
+  if v1 not in nodes:
+    print(v1, 'is not present in the graph')
+  elif v2 not in nodes:
+    print(v1, 'is not present in the graph')
+  else:
+    index1 = nodes.index(v1)    
+    index2 = nodes.index(v2)
+    graph[index1][index2] = 1  
+
+# For directed and weighted
+def add_edge(v1, v2, cost):
+  if v1 not in nodes:
+    print(v1, 'is not present in the graph')
+  elif v2 not in nodes:
+    print(v1, 'is not present in the graph')
+  else:
+    index1 = nodes.index(v1)    
+    index2 = nodes.index(v2)
+    graph[index1][index2] = cost   
 
 
 def print_graph():
