@@ -10,7 +10,7 @@ def add_edge(v1, v2):
   if v1 not in graph:
     print(v1, 'is not present in the graph')
   elif v2 not in graph:
-    print(v1, 'is not present in the graph')
+    print(v2, 'is not present in the graph')
   else:
     graph[v1].append(v2)
     graph[v2].append(v1)
@@ -20,7 +20,7 @@ def add_edge(v1, v2, cost):
   if v1 not in graph:
     print(v1, 'is not present in the graph')
   elif v2 not in graph:
-    print(v1, 'is not present in the graph')
+    print(v2, 'is not present in the graph')
   else:
     lst1 = [v2, cost]
     lst2 = [v1, cost]
@@ -32,7 +32,7 @@ def add_edge(v1, v2):
   if v1 not in graph:
     print(v1, 'is not present in the graph')
   elif v2 not in graph:
-    print(v1, 'is not present in the graph')
+    print(v2, 'is not present in the graph')
   else:
     graph[v1].append(v2)
 
@@ -41,7 +41,7 @@ def add_edge(v1, v2, cost):
   if v1 not in graph:
     print(v1, 'is not present in the graph')
   elif v2 not in graph:
-    print(v1, 'is not present in the graph')
+    print(v2, 'is not present in the graph')
   else:
     lst1 = [v2, cost]
     graph[v1].append(lst1)
@@ -70,6 +70,54 @@ def delete_node(v):
           list1.remove(j)
           break
 
+# For undirected and unweighted
+def delete_edge(v1,v2):
+  if v1 not in graph:
+    print(v1, 'is not present in the graph')
+  elif v2 not in graph:
+    print(v2, 'is not present in the graph')
+  else:
+    if v2 in graph[v1]:
+      graph[v1].remove(v2)
+      graph[v2].remove(v1)
+
+# For undirected and weighted
+def delete_edge(v1,v2,cost):
+  if v1 not in graph:
+    print(v1, 'is not present in the graph')
+  elif v2 not in graph:
+    print(v2, 'is not present in the graph')
+  else:
+    temp1 = [v1, cost]
+    temp2 = [v2, cost]
+    if temp2 in graph[v1]:
+      graph[v1].remove(temp2)
+      graph[v2].remove(temp1)
+
+# For directed and unweighted
+def delete_edge(v1,v2):
+  if v1 not in graph:
+    print(v1, 'is not present in the graph')
+  elif v2 not in graph:
+    print(v2, 'is not present in the graph')
+  else:
+    if v2 in graph[v1]:
+      graph[v1].remove(v2)
+
+# For directed and weighted
+def delete_edge(v1,v2,cost):
+  if v1 not in graph:
+    print(v1, 'is not present in the graph')
+  elif v2 not in graph:
+    print(v2, 'is not present in the graph')
+  else:
+    temp = [v2, cost]
+    if temp in graph[v1]:
+      graph[v1].remove(temp)
+
+  
+
+
 graph = {}
 
 add_Node('A')
@@ -80,5 +128,6 @@ add_Node('C')
 add_edge('A','B',5)
 
 delete_node('B')
+# delete_edge('A','B')
 
 print(graph)
