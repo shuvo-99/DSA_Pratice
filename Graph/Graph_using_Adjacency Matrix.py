@@ -12,6 +12,18 @@ def add_Node(v):
       temp.append(0)
     graph.append(temp)
 
+# for undirected and unweighted
+def add_edge(v1, v2):
+  if v1 not in nodes:
+    print(v1, 'is not present in the graph')
+  elif v2 not in nodes:
+    print(v1, 'is not present in the graph')
+  else:
+    index1 = nodes.index(v1)    
+    index2 = nodes.index(v2)
+    graph[index1][index2] = 1    
+    graph[index2][index1] = 1    
+
 
 def print_graph():
   for i in range(node_count):
@@ -23,12 +35,16 @@ def print_graph():
 nodes = []
 graph = []
 node_count = 0
+
 add_Node('A')
 add_Node('B')
 add_Node('C')
+
+add_edge('A','B')
+add_edge('A','C')
+add_edge('B','C')
+
 add_Node('D')
-add_Node('E')
-add_Node('F')
 
 print(graph)
 print_graph()
