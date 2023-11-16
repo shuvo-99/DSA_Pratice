@@ -17,7 +17,7 @@ def add_edge(v1, v2):
   if v1 not in nodes:
     print(v1, 'is not present in the graph')
   elif v2 not in nodes:
-    print(v1, 'is not present in the graph')
+    print(v2, 'is not present in the graph')
   else:
     index1 = nodes.index(v1)    
     index2 = nodes.index(v2)
@@ -29,7 +29,7 @@ def add_edge(v1, v2, cost):
   if v1 not in nodes:
     print(v1, 'is not present in the graph')
   elif v2 not in nodes:
-    print(v1, 'is not present in the graph')
+    print(v2, 'is not present in the graph')
   else:
     index1 = nodes.index(v1)    
     index2 = nodes.index(v2)
@@ -41,7 +41,7 @@ def add_edge(v1, v2):
   if v1 not in nodes:
     print(v1, 'is not present in the graph')
   elif v2 not in nodes:
-    print(v1, 'is not present in the graph')
+    print(v2, 'is not present in the graph')
   else:
     index1 = nodes.index(v1)    
     index2 = nodes.index(v2)
@@ -52,7 +52,7 @@ def add_edge(v1, v2, cost):
   if v1 not in nodes:
     print(v1, 'is not present in the graph')
   elif v2 not in nodes:
-    print(v1, 'is not present in the graph')
+    print(v2, 'is not present in the graph')
   else:
     index1 = nodes.index(v1)    
     index2 = nodes.index(v2)
@@ -76,7 +76,7 @@ def delete_edge(v1, v2):
   if v1 not in nodes:
     print(v1, 'is not present in the graph')
   elif v2 not in nodes:
-    print(v1, 'is not present in the graph')
+    print(v2, 'is not present in the graph')
   else:
     index1 = nodes.index(v1)    
     index2 = nodes.index(v2)
@@ -88,7 +88,7 @@ def delete_edge(v1, v2):
   if v1 not in nodes:
     print(v1, 'is not present in the graph')
   elif v2 not in nodes:
-    print(v1, 'is not present in the graph')
+    print(v2, 'is not present in the graph')
   else:
     index1 = nodes.index(v1)    
     index2 = nodes.index(v2)
