@@ -46,13 +46,39 @@ def add_edge(v1, v2, cost):
     lst1 = [v2, cost]
     graph[v1].append(lst1)
 
+# For unweighted
+def delete_node(v):
+  if v not in graph:
+    print(v, 'is not present in the graph')
+  else:
+    graph.pop(v)
+    for i in graph:
+      list1 = graph[i]
+      if v in list1:
+        list1.remove(v)
+
+# For weighted
+def delete_node(v):
+  if v not in graph:
+    print(v, 'is not present in the graph')
+  else:
+    graph.pop(v)
+    for i in graph:
+      list1 = graph[i]
+      for j in list1:
+        if v == j[0]:
+          list1.remove(j)
+          break
+
 graph = {}
 
 add_Node('A')
 add_Node('B')
 add_Node('C')
 
-add_edge('A','B')
+# add_edge('A','B')
 add_edge('A','B',5)
+
+delete_node('B')
 
 print(graph)
