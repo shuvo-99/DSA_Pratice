@@ -59,6 +59,17 @@ def add_edge(v1, v2, cost):
     graph[index1][index2] = cost   
 
 
+def delete_node(v):
+  if v not in nodes:
+    print(v,'is not present in the graph')
+  else:
+    index1 = nodes.index(v)
+    node_count -= 1
+    nodes.remove(v)
+    graph.pop(index1)
+    for i in graph:
+      i.pop(index1)
+
 def print_graph():
   for i in range(node_count):
     for j in range(node_count):
@@ -79,6 +90,8 @@ add_edge('A','C')
 add_edge('B','C')
 
 add_Node('D')
+
+delete_node('A')
 
 print(graph)
 print_graph()
