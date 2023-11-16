@@ -24,11 +24,23 @@ def add_edge(v1, v2):
     graph[index1][index2] = 1    
     graph[index2][index1] = 1    
 
+# for undirected and weighted
+def add_edge(v1, v2, cost):
+  if v1 not in nodes:
+    print(v1, 'is not present in the graph')
+  elif v2 not in nodes:
+    print(v1, 'is not present in the graph')
+  else:
+    index1 = nodes.index(v1)    
+    index2 = nodes.index(v2)
+    graph[index1][index2] = cost    
+    graph[index2][index1] = cost    
+
 
 def print_graph():
   for i in range(node_count):
     for j in range(node_count):
-      print(graph[i][j],end=' ')
+      print(format(graph[i][j],'<3'),end=' ')
     print()
 
 
