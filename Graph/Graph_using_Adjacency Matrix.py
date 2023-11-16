@@ -60,6 +60,7 @@ def add_edge(v1, v2, cost):
 
 
 def delete_node(v):
+  global node_count
   if v not in nodes:
     print(v,'is not present in the graph')
   else:
