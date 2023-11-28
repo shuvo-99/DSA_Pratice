@@ -33,22 +33,39 @@ class LinekedList:
       tail = tail.next
     print()
 
-  def removeDuplicate(self):
-    pointer1 = self.head
-    pointer2 = None
 
-    while pointer1:
-      pointer2 = pointer1
+  # Process - 1: Double iteratrion -> O(n^2)
+  # def removeDuplicate(self):
+  #   pointer1 = self.head
+  #   pointer2 = None
 
-      while pointer2.next:
-        if pointer1.data == pointer2.next.data:
-          pointer2.next = pointer2.next.next
+  #   while pointer1:
+  #     pointer2 = pointer1
+
+  #     while pointer2.next:
+  #       if pointer1.data == pointer2.next.data:
+  #         pointer2.next = pointer2.next.next
           
-        else:
-          pointer2 = pointer2.next
+  #       else:
+  #         pointer2 = pointer2.next
       
-      pointer1 = pointer1.next
+  #     pointer1 = pointer1.next
 
+
+
+  # Process - 2: Using Hasing / Set -> O(n)
+  def removeDuplicate(self):
+    tail = self.head
+    hash = set()
+    if tail:
+      hash.add(tail.data) 
+
+      while tail.next:
+        if tail.next.data in hash:
+          tail.next = tail.next.next
+        else:
+          hash.add(tail.data)
+          tail = tail.next
 
 ll1 = LinekedList([12,11,12,21,41,43,21])
 ll1.printDetails()
