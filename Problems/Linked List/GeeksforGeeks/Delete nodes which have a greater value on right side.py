@@ -69,7 +69,7 @@ class LinekedList:
           currentNode = currentNode.next
 
 
-ll1 = LinekedList([12,15,10,11,12,6,2,3])
+ll1 = LinekedList([12,15,10,11,6,12,3])
 ll1.printDetails()
 ll1.removeNode()
 ll1.printDetails()
