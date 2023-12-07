@@ -35,7 +35,7 @@ class LinekedList:
 
   def removeNthFromEnd(self, head,n):
 
-    # PROCESS - 1
+    # ---------------- PROCESS - 1 -----------------
     # dummy = Node(0, head)
     # left = dummy
     # right = head
@@ -52,7 +52,7 @@ class LinekedList:
 
     # return dummy.next
 
-    # PROCESS - 2
+    # ---------------- PROCESS - 2 ------------------
     left = head
     right = head
 
