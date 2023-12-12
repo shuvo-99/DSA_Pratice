@@ -98,14 +98,12 @@ class LinekedList:
         first=fnxt
         second=snxt
 
-
   def printDetails2(self, head):
     tail = head
     while tail:
       print(tail.val,'-->',end=' ')
       tail = tail.next
     print()
-
 
 ll1 = LinekedList([1,2,3,4,5])
 ll1.printDetails()
