@@ -63,35 +63,46 @@ class LinekedList:
         if tail.next.next.next:
           if count%2 == 0:
             if tail.next.data > tail.next.next.data:
-              temp = tail.next.next
-              tail.next.next = temp.next
-              temp.next = tail.next
-              tail.next = temp
+              # temp = tail.next.next
+              # tail.next.next = temp.next
+              # temp.next = tail.next
+              # tail.next = temp
+              self.swapNodeLocation(tail)
           
           else:
             if tail.next.data < tail.next.next.data:
-              temp = tail.next.next
-              tail.next.next = temp.next
-              temp.next = tail.next
-              tail.next = temp
+              # temp = tail.next.next
+              # tail.next.next = temp.next
+              # temp.next = tail.next
+              # tail.next = temp
+              self.swapNodeLocation(tail)
         
         else:
           if count%2 == 0:
             if tail.next.data > tail.next.next.data:
-              temp = tail.next.next
-              tail.next.next = temp.next
-              temp.next = tail.next
-              tail.next = temp
+              # temp = tail.next.next
+              # tail.next.next = temp.next
+              # temp.next = tail.next
+              # tail.next = temp
+              self.swapNodeLocation(tail)
           
           else:
             if tail.next.data < tail.next.next.data:
-              temp = tail.next.next
-              tail.next.next = temp.next
-              temp.next = tail.next
-              tail.next = temp
+              # temp = tail.next.next
+              # tail.next.next = temp.next
+              # temp.next = tail.next
+              # tail.next = temp
+              self.swapNodeLocation(tail)
 
       count+=1
       tail = tail.next
+
+  def swapNodeLocation(self,tail):
+    temp = tail.next.next
+    tail.next.next = temp.next
+    temp.next = tail.next
+    tail.next = temp
+    
 
 # ll1 = LinekedList([4,3,7,8,6,2,1])
 # ll1 = LinekedList([1,2,3,4])
