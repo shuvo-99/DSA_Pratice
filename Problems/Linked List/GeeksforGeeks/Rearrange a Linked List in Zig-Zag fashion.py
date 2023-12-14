@@ -33,6 +33,13 @@ class LinekedList:
       tail = tail.next
     print()
 
+
+  # ==============
+  #  In this method we changed the node memory
+  #  location instead of only swaping the data 
+  #  amoung nodes
+  # ==============
+
   def zigZag(self):
     tail = self.head
     count = 1
