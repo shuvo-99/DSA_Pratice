@@ -7,14 +7,11 @@ def mergeSort(arr, way = 'forward'):
     mergeSort(L, way)
     mergeSort(R, way)
 
-    # ==== Merge ====
-
     i = j = k = 0
     while (i<len(L) and j<len(R)):
       
-      # Reverse Order - High to Low
-      if way == 'reverse':
-        if L[i] >= R[j]:
+      if way == 'forward':
+        if L[i] <= R[j]:
           arr[k] = L[i]
           i += 1
           k += 1
@@ -22,10 +19,9 @@ def mergeSort(arr, way = 'forward'):
           arr[k] = R[j]
           j += 1
           k += 1
-
-      # Forward Order - Low to High
+      
       else:
-        if L[i] <= R[j]:
+        if L[i] >= R[j]:
           arr[k] = L[i]
           i += 1
           k += 1
@@ -44,14 +40,22 @@ def mergeSort(arr, way = 'forward'):
       j += 1
       k += 1
 
-# l1 = [2,8,15,18]
-# l2 = [5,9,12,17,19,25]
-# Merge(l1,l2)
+def check(a, b, k):
+  
+  mergeSort(a)
+  mergeSort(b, 'reverse')
+  
+  for i in range(len(a)):
+    if a[i] + b[i] < k:
+      return False
 
-arr = [9,3,7,5,6,4,8,2]
-mergeSort(arr)
-print(arr)
-mergeSort(arr,'reverse')
-print('reverse =>',arr)
+  return True
 
+a = [ 2, 1, 3] 
+b = [7, 9, 8] 
+k = 10
 
+if check(a,b,k):
+  print('Yes')
+else:
+  print('No')
